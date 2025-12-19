@@ -111,3 +111,6 @@ git clone https://github.com/SakethKakarla99/CPSC411aFinal.git
 1) Select an emulator or physical device
 2) Run the project
 3) Create an account and start using the app
+
+
+## Screenshot for each Screen
