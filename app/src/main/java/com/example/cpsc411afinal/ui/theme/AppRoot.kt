@@ -47,13 +47,14 @@ private class NotesFactory(private val repo: NotesRepository, private val folder
 private class NoteEditFactory(
     private val repo: NotesRepository,
     private val folderId: Long,
-    private val existing: NoteEntity?
+    private val noteId: Long?
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return NoteEditViewModel(repo, folderId, existing) as T
+        return NoteEditViewModel(repo, folderId, noteId) as T
     }
 }
+
 
 private class ProfileFactory(
     private val prefsRepo: com.example.cpsc411afinal.data.repo.UserPrefsRepository,
@@ -189,17 +190,17 @@ fun AppRoot(container: AppContainer) {
             val noteId = backStack.arguments?.getLong("noteId") ?: -1L
 
             // Find the existing note (simple approach: read from current Notes VM state)
-            val notesVm: NotesListViewModel = viewModel(factory = NotesFactory(container.notesRepository, folderId))
-            val notes by notesVm.visibleNotes.collectAsState()
-            val existing = notes.firstOrNull { it.id == noteId }
+            val actualNoteId: Long? = if (noteId == -1L) null else noteId
 
-            val editVm: NoteEditViewModel = viewModel(factory = NoteEditFactory(container.notesRepository, folderId, existing))
+            val editVm: NoteEditViewModel =
+                viewModel(factory = NoteEditFactory(container.notesRepository, folderId, actualNoteId))
 
             NoteEditScreen(
-                title = if (existing == null) "Add Note" else "Edit Note",
+                title = if (actualNoteId == null) "Add Note" else "Edit Note",
                 vm = editVm,
                 onBack = { nav.popBackStack() }
             )
+
         }
     }
 }

@@ -8,6 +8,10 @@ interface NoteDao {
     @Query("SELECT * FROM notes WHERE folderId = :folderId")
     fun notesForFolder(folderId: Long): Flow<List<NoteEntity>>
 
+    @Query("SELECT * FROM notes WHERE id = :id LIMIT 1")
+    suspend fun getById(id: Long): NoteEntity?
+
+
     @Insert
     suspend fun insert(note: NoteEntity)
 

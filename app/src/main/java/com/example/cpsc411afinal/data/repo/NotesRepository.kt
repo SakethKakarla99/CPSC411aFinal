@@ -2,6 +2,8 @@ package com.example.cpsc411afinal.data.repo
 
 import com.example.cpsc411afinal.data.local.FolderDao
 import com.example.cpsc411afinal.data.local.NoteDao
+import com.example.cpsc411afinal.data.local.FolderEntity
+import com.example.cpsc411afinal.data.local.NoteEntity
 
 class NotesRepository(
     private val folderDao: FolderDao,
@@ -36,6 +38,9 @@ class NotesRepository(
 
     suspend fun deleteNote(note: com.example.cpsc411afinal.data.local.NoteEntity) =
         noteDao.delete(note)
+
+    suspend fun getNoteById(id: Long): NoteEntity? = noteDao.getById(id)
+
 }
 
 

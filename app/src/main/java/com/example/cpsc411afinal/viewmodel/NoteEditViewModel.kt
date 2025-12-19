@@ -19,16 +19,24 @@ data class NoteEditUiState(
 class NoteEditViewModel(
     private val repo: NotesRepository,
     private val folderId: Long,
-    private val existing: NoteEntity?
+    private val noteId: Long? // ✅ null = new note, otherwise edit existing
 ) : ViewModel() {
 
-    private val _ui = MutableStateFlow(
-        NoteEditUiState(
-            title = existing?.title ?: "",
-            content = existing?.content ?: ""
-        )
-    )
+    private var existing: NoteEntity? = null
+
+    private val _ui = MutableStateFlow(NoteEditUiState())
     val ui: StateFlow<NoteEditUiState> = _ui
+
+    init {
+        // ✅ If editing, load the note from DB
+        viewModelScope.launch {
+            val id = noteId ?: return@launch
+            existing = repo.getNoteById(id)
+            existing?.let { n ->
+                _ui.update { it.copy(title = n.title, content = n.content) }
+            }
+        }
+    }
 
     fun setTitle(v: String) = _ui.update { it.copy(title = v, titleError = null) }
     fun setContent(v: String) = _ui.update { it.copy(content = v) }
@@ -46,13 +54,17 @@ class NoteEditViewModel(
 
         viewModelScope.launch {
             _ui.update { it.copy(saving = true) }
+
             val t = ui.value.title.trim()
             val c = ui.value.content
 
-            if (existing == null) {
+            val ex = existing
+            if (ex == null) {
+                // ✅ ADD
                 repo.addNote(folderId = folderId, title = t, content = c)
             } else {
-                repo.updateNote(existing.copy(title = t, content = c))
+                // ✅ UPDATE
+                repo.updateNote(ex.copy(title = t, content = c))
             }
 
             _ui.update { it.copy(saving = false) }
@@ -60,5 +72,6 @@ class NoteEditViewModel(
         }
     }
 }
+
 
 
