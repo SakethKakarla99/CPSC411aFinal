@@ -113,4 +113,23 @@ git clone https://github.com/SakethKakarla99/CPSC411aFinal.git
 3) Create an account and start using the app
 
 
-## Screenshot for each Screen
+## 📸 Screenshot for each Screen
+
+### Login Screen
+
+### Home Screen
+
+### Folder List
+
+### Notes List
+
+### Profile
+
+### Notes
+
+### Add Note
+
+### Edit Note
+
+
+
