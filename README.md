@@ -91,5 +91,23 @@ The app demonstrates modern Android development practices including **MVVM archi
 ---
 
 ### 1️⃣ Clone the Repository
-```bash
+
 git clone https://github.com/SakethKakarla99/CPSC411aFinal.git
+
+### 2️⃣ **Open in Android Studio**
+1) Open Android Studio
+2) Select Open
+3) Choose the cloned project folder
+4) Let Gradle sync complete
+
+### 3️⃣ Firebase Setup
+1) Create a Firebase project in the Firebase Console
+2) Add an Android app with: package name matching the project
+3) Download google-services.json
+4) Place it in app/google-services.json
+5) Enable Email/Password Authentication in Firebase
+
+### 4️⃣ Build & Run
+1) Select an emulator or physical device
+2) Run the project
+3) Create an account and start using the app
