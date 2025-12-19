@@ -1,4 +1,5 @@
 # CPSC 411 – Notes App (Jetpack Compose)
+# Saketh Kakarla 885875146
 
 This project is an Android Notes application built for **CPSC 411** using **Kotlin** and **Jetpack Compose**.  
 The app demonstrates modern Android development practices including **MVVM architecture**, **Firebase Authentication**, **Room database**, **StateFlow**, and **persistent user settings**.
