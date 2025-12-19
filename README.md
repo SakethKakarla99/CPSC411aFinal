@@ -125,7 +125,7 @@ git clone https://github.com/SakethKakarla99/CPSC411aFinal.git
 ![Folder List](Screenshots/folders.png)
 
 ### Profile
-![Profile Screen](Screenshot/profile.png)
+![Profile Screen](Screenshots/profile.png)
 
 ### Notes List Screen
 ![Notes Screen](Screenshots/notes.png)
