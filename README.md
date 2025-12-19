@@ -116,27 +116,24 @@ git clone https://github.com/SakethKakarla99/CPSC411aFinal.git
 ## 📸 Screenshot for each Screen
 
 ### Login Screen
-![Login Screen]
+![Login Screen](screenshots/login.png)
 
 ### Home Screen
-![Home Screen]
+![Home Screen](screenshots/home.png)
 
-### Folder List
-![Folder List]
-
-### Notes List
-![Notes List]
+### Folder List Screen
+![Folder List](screenshots/folders.png)
 
 ### Profile
-![Profile Screen]
+![Profile Screen](screenshot/profile.png)
 
-### Notes
-![Notes Screen]
+### Notes List Screen
+![Notes Screen](screenshots/notes.png)
 
 ### Add Note
-![Add Note Screen]
+![Add Note Screen](screenshots/addnote.png)
 
 ### Edit Note
-![Edit Note Screen]
+![Edit Note Screen](screenshots/editnote.png)
 
 
