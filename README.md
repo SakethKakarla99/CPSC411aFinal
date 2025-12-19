@@ -134,6 +134,6 @@ git clone https://github.com/SakethKakarla99/CPSC411aFinal.git
 ![Add Note Screen](Screenshots/addnote.png)
 
 ### Edit Note Screen
-![Edit Note Screen](Screenshots/editnote.png)
+![Edit Note Screen](Screenshots/editnote2.png)
 
 
